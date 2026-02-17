@@ -1,0 +1,39 @@
+.job-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.job-list h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.job-list-description {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+.jobs-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.job-list-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .job-list h2 {
+    font-size: 1.5rem;
+  }
+
+  .job-list-description {
+    font-size: 0.9rem;
+  }
+}

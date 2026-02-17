@@ -37,13 +37,14 @@ Respuesta (200):
   { "id": "4416372005", "title": "Fullstack developer" },
   { "id": "9100000001", "title": "Head Chef" }
 ]
+
 Step 4 — Mostrar un listado de posiciones
 Creá un componente en React que muestre un listado de las posiciones obtenidas en el paso anterior. Cada item de la lista debe incluir:
 
-Título de la posición (title)
-Un campo de input donde puedas ingresar la URL de tu repositorio de GitHub
-Un botón "Submit" para enviar tu postulación a esa posición
-Usá el estilo que prefieras — lo importante es que se vea prolijo y funcional.
+ ● Título de la posición (title)
+ ● Un campo de input donde puedas ingresar la URL de tu repositorio de GitHub
+ ● Un botón "Submit" para enviar tu postulación a esa posición
+ ● Usá el estilo que prefieras — lo importante es que se vea prolijo y funcional.
 
 Step 5 — Enviar tu postulación
 Presioná el botón "Submit" para la posición a la que estás aplicando dentro de esta lista, llamando a la API con el siguiente body:
@@ -58,24 +59,31 @@ Body:
   "candidateId": "tu candidateId (del Step 2)",
   "repoUrl": "https://github.com/tu-usuario/tu-repo"
 }
-Campo	Valor
-uuid	Tu uuid obtenido en el Step 2
-jobId	El id de la posición desde la que hacés submit
-candidateId	Tu candidateId obtenido en el Step 2
-repoUrl	URL de tu repositorio de GitHub
-Respuesta exitosa (200):
 
+Campo	      Valor
+uuid	      Tu uuid obtenido en el Step 2
+jobId	      El id de la posición desde la que hacés submit
+candidateId	Tu candidateId obtenido en el Step 2
+repoUrl	    URL de tu repositorio de GitHub
+
+Respuesta exitosa (200):
 { "ok": true }
+
+--------------------------------------------------------------------------------------------------------
+
 Requisitos
-Usar React (cualquier versión).
-Mostrar un listado de posiciones obtenido de la API.
-Cada posición debe tener un campo de input para la URL del repo de GitHub y un botón "Submit".
-El botón debe hacer el POST con el body correcto.
-Manejar estados de carga y error en la UI.
+
+  ● Usar React (cualquier versión).
+  ● Mostrar un listado de posiciones obtenido de la API.
+  ● Cada posición debe tener un campo de input para la URL del repo de GitHub y un botón "Submit".
+  ● El botón debe hacer el POST con el body correcto.
+  ● Manejar estados de carga y error en la UI.
+  
 Qué evaluamos
-Criterio	Qué miramos
-Calidad de código	Código limpio, legible, buenas convenciones de nombrado
-Componentes	Buena separación de componentes, aunque sea una app chica
-Manejo de errores	Manejo adecuado de errores de red y respuestas de la API
-Presentación visual	Un componente prolijo — no hace falta nada fancy
-Resolución de problemas	Cómo manejás situaciones inesperadas
+
+Criterio	                      Qué miramos
+  ● Calidad de código	          Código limpio, legible, buenas convenciones de nombrado
+  ● Componentes	                Buena separación de componentes, aunque sea una app chica
+  ● Manejo de errores	          Manejo adecuado de errores de red y respuestas de la API
+  ● Presentación visual	        Un componente prolijo — no hace falta nada fancy
+  ● Resolución de problemas	    Cómo manejás situaciones inesperadas

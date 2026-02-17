@@ -5,9 +5,20 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://botfilter-h5ddh6d
  */
 const handleResponse = async (response) => {
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}))
+    const errorText = await response.text().catch(() => '')
+    let errorData = {}
+    try {
+      errorData = JSON.parse(errorText)
+    } catch (e) {
+      errorData = { message: errorText }
+    }
+    console.error('Error Response:', {
+      status: response.status,
+      statusText: response.statusText,
+      body: errorData
+    })
     throw new Error(
-      errorData.message || `Error ${response.status}: ${response.statusText}`
+      errorData.message || errorText || `Error ${response.status}: ${response.statusText}`
     )
   }
   return response.json()
@@ -55,6 +66,11 @@ export const getJobsList = async () => {
  */
 export const applyToJob = async (applicationData) => {
   try {
+    console.log('API Request:', {
+      url: `${BASE_URL}/api/candidate/apply-to-job`,
+      data: applicationData
+    })
+    
     const response = await fetch(`${BASE_URL}/api/candidate/apply-to-job`, {
       method: 'POST',
       headers: {
@@ -62,6 +78,9 @@ export const applyToJob = async (applicationData) => {
       },
       body: JSON.stringify(applicationData),
     })
+    
+    console.log('API Response Status:', response.status)
+    
     return await handleResponse(response)
   } catch (error) {
     console.error('Error al aplicar al trabajo:', error)

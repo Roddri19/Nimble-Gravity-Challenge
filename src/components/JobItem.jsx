@@ -15,8 +15,10 @@ function JobItem({ job, candidate }) {
   })
 
   const validateGitHubUrl = (url) => {
-    const githubRegex = /^https?:\/\/(www\.)?github\.com\/[\w.-]+\/[\w.-]+\/?$/
-    return githubRegex.test(url)
+    // Eliminar barra final si existe
+    const cleanUrl = url.trim().replace(/\/$/, '')
+    const githubRegex = /^https?:\/\/(www\.)?github\.com\/[\w.-]+\/[\w.-]+$/
+    return githubRegex.test(cleanUrl)
   }
 
   const handleSubmit = async (e) => {
@@ -47,8 +49,11 @@ function JobItem({ job, candidate }) {
         uuid: candidate.uuid,
         jobId: job.id,
         candidateId: candidate.candidateId,
-        repoUrl: repoUrl.trim()
+        applicationId: candidate.applicationId,
+        repoUrl: repoUrl.trim().replace(/\/$/, '')
       }
+
+      console.log('Enviando aplicación:', applicationData)
 
       const response = await applyToJob(applicationData)
       

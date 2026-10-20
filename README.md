@@ -1,26 +1,23 @@
 # Nimble Gravity Challenge
 
-Aplicación React para visualizar y aplicar a posiciones disponibles mediante la API de Nimble Gravity.
+React app built for a technical challenge: it consumes the Nimble Gravity API to show open positions and lets a candidate apply with their GitHub repository URL.
 
-## Instalación
+## Features
 
+- Fetches the candidate's data by email
+- Lists the available positions
+- Apply form with GitHub URL validation
+- Loading and error states handled in the UI
+
+## Tech
+
+React 19 · Vite 7 · CSS3
+
+## Run locally
+
+```bash
 npm install
 npm run dev
+```
 
-## Configuración
-
-Se actualizó el email en `src/App.jsx` línea 11, con el email del candidato.
-
-## Funcionalidades
-
-- Obtención de datos del candidato por email
-- Lista de posiciones disponibles
-- Formulario para aplicar con URL de GitHub
-- Validación de URLs
-- Manejo de estados y errores
-
-## Tecnologías
-
-- React 19
-- Vite 7
-- CSS3
+The candidate email is set in `src/App.jsx`.
